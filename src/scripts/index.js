@@ -18,30 +18,32 @@ interactables.push(holdEle)
 for (let ele of interactables) {
     document.getElementById(ele.id).addEventListener("drop", function () { dragDrop(event) }, false);
     document.getElementById(ele.id).addEventListener("dragover", function () { dragOver(event) }, false);
-    document.getElementById(ele.id).addEventListener("dragenter", function () { dragEnter(event) }, false);
-    document.getElementById(ele.id).addEventListener("dragleave", function () { dragLeave(event) }, false);
-    console.log(ele)
 }
 
 // Event that triggers when something draggable drops over something.
 function dragDrop(e) {
     e.preventDefault();
-    console.log("i was dropped");
+    if (e.target.className != "container") return;
+
+    // Move the element to the new container and update the element.
+    let fieldEle = document.getElementById(e.dataTransfer.getData("text"));
+    let currContainer = fieldEle.parentElement.parentElement.id;
+    let newContainer = e.target.parentElement.id;
+
+    if (tierlist.hold.container.some(field => field.name == fieldEle.id) || tierlist.tiers.some((tier => tier.container.some(field => field.name == fieldEle.id)))) {
+        e.target.appendChild(fieldEle);
+        // Moving the element with the tierlist object.
+        let to = (newContainer != "holding") ? tierlist.tiers.find(tier => tier.id == newContainer) : tierlist.hold;
+        let from = (currContainer != "holding") ? tierlist.tiers.find(tier => tier.id == currContainer) : tierlist.hold;
+        tierlist.moveTo(
+            from.container.find(field => field.name == fieldEle.id),
+            to,
+            from);
+        console.log(tierlist)
+    }
 }
 
-// Event that triggers when something draggable drags over something.
+// Remove the default event to allow dropping in elements.
 function dragOver(e) {
     e.preventDefault();
-    console.log("this is something");
-}
-
-// Event that triggers when something draggable drags over something.
-function dragEnter(e) {
-    e.preventDefault();
-    if ( e.target.className == "container") e.target.style.border = "3px dotted red";
-}
-
-// Event that triggers when something draggable leaves a container.
-function dragLeave(e) {
-    if ( e.target.className == "container") e.target.style.border = "";
 }

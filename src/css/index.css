@@ -34,8 +34,8 @@ body {
     align-items: center;
 }
 .field {
-    width: 200px;
-    height: 200px;
+    height: 100px;
+    width: 100px;
 }
 .container {
     height: inherit;
@@ -46,6 +46,10 @@ body {
 
 /* CSS Selectors */
 #holding section {
+    height: 200px;
+}
+#holding section img {
+    width: 200px;
     height: 200px;
 }
 .tier h2 {

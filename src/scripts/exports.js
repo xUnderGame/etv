@@ -20,8 +20,10 @@ export class Tierlist {
         
         // Moves it to the specified tier.
         moveTo.add(field);
-        if (moveFrom != null) refFrom.remove(field);
-        console.log(`${field.name} moved from ${moveFrom} to ${moveTo.id}`);
+        if (moveFrom != null) {
+            if (moveFrom == this.hold) refFrom = this.hold;
+            refFrom.remove(field);
+        }
     }
 
     // Creates a field and adds it to holding.
@@ -32,6 +34,7 @@ export class Tierlist {
     
         // Creates the element in html.
         let fieldHtml = document.createElement("img");
+        fieldHtml.addEventListener("dragstart", function (e) { e.dataTransfer.setData("text", e.target.id); }, false);
         fieldHtml.classList.add("field");
         fieldHtml.src = field.image;
         fieldHtml.id = field.name;
@@ -69,7 +72,7 @@ export class Tier {
         this.container.splice(ref, 0, move);
     }
 
-    // Removes an element from the tier
+    // Removes an element from the tier.
     remove(del) {
         let ref = this.container.findIndex(field => field == del);
         if (ref == -1) return;
