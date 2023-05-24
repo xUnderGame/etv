@@ -2,14 +2,11 @@
 export class Tierlist {
     tiers;
     hold;
-    constructor() {
-        this.tiers = [new Tier("S", "red"),
-            new Tier("A", "orange"),
-            new Tier("B", "yellow"),
-            new Tier("C", "green"),
-            new Tier("D", "blue")
-        ];
-        this.hold = new Tier("Holding", "grey");
+    constructor(tiers = null) {
+        this.tiers = [];
+        if (tiers) tiers.forEach(tier => this.createTier(tier));
+        this.hold = new Tier("Holding", "transparent");
+
     }
 
     // Moves an element from a tier a different one.
@@ -36,6 +33,7 @@ export class Tierlist {
         let fieldHtml = document.createElement("img");
         fieldHtml.addEventListener("dragstart", function (e) { e.dataTransfer.setData("text", e.target.id); }, false);
         fieldHtml.classList.add("field");
+        fieldHtml.title = field.name;
         fieldHtml.src = field.image;
         fieldHtml.id = field.name;
         fieldHtml.draggable = true;
@@ -44,6 +42,27 @@ export class Tierlist {
         let holder = document.querySelector("#holding section");
         holder.appendChild(fieldHtml);
     }
+
+    // Creates a tier in HTML and saves it as an object in tierlist.
+    createTier(tier) {
+        // We create the elements in HTML.
+        let newTier = document.createElement("article");
+        newTier.style.backgroundColor = tier.color;
+        newTier.classList.add("tier");
+        newTier.id = tier.id;
+
+        let tag = document.createElement("h2");
+        tag.innerText = tier.id;
+
+        let container = document.createElement("section");
+        container.classList.add("container");
+
+        // Add to the list of tiers and DOM.
+        newTier.appendChild(tag);
+        newTier.appendChild(container);
+        document.getElementById("tl").appendChild(newTier);
+        this.tiers.push(tier);
+    }
 }
 
 // Tier class.
@@ -51,7 +70,7 @@ export class Tier {
     id;
     container;
     color;
-    constructor(tierID, tierCol) {
+    constructor(tierID, tierCol = "transparent") {
         this.id = tierID;
         this.container = [];
         this.color = tierCol;

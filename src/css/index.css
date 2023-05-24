@@ -26,7 +26,7 @@ body {
     margin-bottom: 10px;
 }
 .tier {
-    height: 100px;
+    height: 125px;
     width: 80%;
     border: 1px solid var(--border);
     display: flex;
@@ -34,8 +34,9 @@ body {
     align-items: center;
 }
 .field {
-    height: 100px;
-    width: 100px;
+    height: 125px;
+    width: 125px;
+    margin: 0px 5px 0px 0px;
 }
 .container {
     height: inherit;
@@ -53,8 +54,12 @@ body {
     height: 200px;
 }
 .tier h2 {
-    height: inherit;
-    width: 5%;
+    height: fit-content;
+    width: 8%;
     text-align: center;
-    background-color: rgb(199, 22, 22);
+}
+
+/* Effects */
+.field:hover {
+    cursor: pointer;
 }

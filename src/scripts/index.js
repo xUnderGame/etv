@@ -1,10 +1,17 @@
-import { Tierlist } from "/src/scripts/exports.js"
+import { Tierlist, Tier } from "/src/scripts/exports.js"
 console.log("Hello World!")
 
 
 // ----------- Tierlist && testing. -----------
-var tierlist = new Tierlist();
+var tierlist = new Tierlist([
+    new Tier("S", "red"),
+    new Tier("A", "orange"),
+    new Tier("B", "yellow"),
+    new Tier("C", "green"),
+    new Tier("D", "blue")
+]);
 tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
+tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
 console.log(tierlist);
 
 
@@ -27,6 +34,7 @@ function dragDrop(e) {
 
     // Move the element to the new container and update the element.
     let fieldEle = document.getElementById(e.dataTransfer.getData("text"));
+    if (!fieldEle) return;
     let currContainer = fieldEle.parentElement.parentElement.id;
     let newContainer = e.target.parentElement.id;
 
