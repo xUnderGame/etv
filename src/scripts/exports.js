@@ -30,8 +30,16 @@ export class Tierlist {
         let field = new Field(fieldName, fieldImg, fieldUrl);
         this.moveTo(field, this.hold);
     
-        // Create the object in html.
-        document.createElement("div");
+        // Creates the element in html.
+        let fieldHtml = document.createElement("img");
+        fieldHtml.classList.add("field");
+        fieldHtml.src = field.image;
+        fieldHtml.id = field.name;
+        fieldHtml.draggable = true;
+
+        // Adds the element to the holder container.
+        let holder = document.querySelector("#holding section");
+        holder.appendChild(fieldHtml);
     }
 }
 

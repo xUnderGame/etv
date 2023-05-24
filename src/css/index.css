@@ -17,11 +17,13 @@ body {
 }
 
 /* Classes and ID's */
+#holding,
 #tl {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 .tier {
     height: 100px;
@@ -31,15 +33,24 @@ body {
     flex-direction: row;
     align-items: center;
 }
-.tier h2 {
-    height: inherit;
-    width: 5%;
-    text-align: center;
-    background-color: rgb(199, 22, 22);
+.field {
+    width: 200px;
+    height: 200px;
 }
 .container {
     height: inherit;
     width: 95%;
     background-color: var(--tier-bg);
     border: 1px solid var(--border);
+}
+
+/* CSS Selectors */
+#holding section {
+    height: 200px;
+}
+.tier h2 {
+    height: inherit;
+    width: 5%;
+    text-align: center;
+    background-color: rgb(199, 22, 22);
 }
