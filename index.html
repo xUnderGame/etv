@@ -11,12 +11,15 @@
     <main id="tl"></main>
     <article id="holding"><section class="container"></section></article>
 
-    <button id="add" class="button">Add Field</button>
-    <button id="export" class="button">Export Tierlist</button>
-    <div>
-        <button id="import" class="button">Import/Load Tierlist</button>
-        <input type="text">
-    </div>
+    <article id="buttons">        
+        <button id="tierControls" class="button">Add/Remove Tier</button>
+        <button id="fieldControls" class="button">Add/Remove Field</button>
+        <section id="importing">
+            <button id="import" class="button">Import/Load Tierlist</button>
+            <input id="importField" type="text" placeholder="Paste json here!">
+        </section>
+        <button id="export" class="button">Export Tierlist</button>
+    </article>
     <script type="module" src="src/scripts/index.js"></script>
 </body>
 </html>

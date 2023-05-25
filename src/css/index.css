@@ -6,7 +6,11 @@
     --bg: #231e24;
     --tier-bg: #2a252b;
     --accent: #dd318d;
+    --accent-darker: #bb2977;
 }
+::placeholder {
+    text-align: center; 
+ }
 * {
     margin: 0px;
     padding: 0px;
@@ -14,6 +18,13 @@
 body {
     background-color: var(--bg);
     color: var(--text);
+}
+button {
+    background-color: var(--accent);
+    color: var(--text);
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    padding: 10px;
 }
 
 /* Classes and ID's */
@@ -24,6 +35,19 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+}
+#buttons {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+}
+#importing {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 .tier {
     height: 125px;
@@ -47,11 +71,11 @@ body {
 
 /* CSS Selectors */
 #holding section {
-    height: 200px;
+    height: 175px;
 }
 #holding section img {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
 }
 .tier h2 {
     height: fit-content;
@@ -60,6 +84,10 @@ body {
 }
 
 /* Effects */
+button:hover,
 .field:hover {
     cursor: pointer;
+}
+button:hover {
+    background-color: var(--accent-darker);
 }

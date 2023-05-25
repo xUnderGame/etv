@@ -1,8 +1,6 @@
 import { Tierlist, Tier } from "/src/scripts/exports.js"
-console.log("Hello World!")
 
-
-// ----------- Tierlist && testing. -----------
+// ----------- Tierlist && initial stuff. -----------
 var tierlist = new Tierlist([
     new Tier("S", "red"),
     new Tier("A", "orange"),
@@ -10,10 +8,18 @@ var tierlist = new Tierlist([
     new Tier("C", "green"),
     new Tier("D", "blue")
 ]);
+
+// Adds some placeholder songs.
 tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
 tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
+tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
 console.log(tierlist);
 
+// Add event listeners to buttons.
+let buttonIDs = ["tierControls", "fieldControls", "import", "export"];
+for (const i in buttonIDs.length) {
+    document.getElementById(buttonIDs[i]), addEventListener("click", function () { });
+}
 
 // ----------- Drag && drop sheningans. -----------
 var holdEle = document.getElementById("holding");
