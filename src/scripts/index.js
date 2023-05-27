@@ -16,9 +16,51 @@ tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16
 console.log(tierlist);
 
 // Add event listeners to buttons.
-let buttonIDs = ["tierControls", "fieldControls", "import", "export"];
-for (const i in buttonIDs.length) {
-    document.getElementById(buttonIDs[i]), addEventListener("click", function () { });
+let buttonIDs = ["tierControls", "fieldControls"]; //, "import", "export"
+for (const i in buttonIDs) {
+    document.getElementById(buttonIDs[i]).addEventListener("click", function () { openGUI(buttonIDs[i]); });
+}
+
+// GUI Function.
+function openGUI(id) {
+    // Dim background and main modal.
+    let blank = document.createElement("article");
+    let modal = document.createElement("section");
+    let controls = document.createElement("div")
+    let title = document.createElement("h3");
+    blank.addEventListener("click", function (e) { if (!document.getElementById("modal").contains(e.target)) document.getElementById("blank").remove() });
+    blank.id = "blank";
+    modal.id = "modal";
+
+    // Now the funky stuff!
+    switch (id) {
+        // Tier controls.
+        case "tierControls":
+            title.textContent = "Tier controls";
+
+            // Create tier button and fields.
+            let tierBtn1 = document.createElement("button");
+            tierBtn1.addEventListener("click", function () { tierlist.createTier(new Tier("test")) });
+            tierBtn1.textContent = "Create tier";
+            
+            let tierNameField =
+            controls.appendChild(tierBtn1);
+            break;
+    
+        // Field controls.
+        case "fieldControls":
+            title.textContent = "Field controls";
+            break;
+        
+        default:
+            break;
+    }
+
+    // Append everything into the DOM.
+    modal.appendChild(title);
+    modal.appendChild(controls);
+    blank.appendChild(modal);
+    document.body.appendChild(blank);
 }
 
 // ----------- Drag && drop sheningans. -----------
@@ -46,13 +88,11 @@ function dragDrop(e) {
 
     if (tierlist.hold.container.some(field => field.name == fieldEle.id) || tierlist.tiers.some((tier => tier.container.some(field => field.name == fieldEle.id)))) {
         e.target.appendChild(fieldEle);
+
         // Moving the element with the tierlist object.
         let to = (newContainer != "holding") ? tierlist.tiers.find(tier => tier.id == newContainer) : tierlist.hold;
         let from = (currContainer != "holding") ? tierlist.tiers.find(tier => tier.id == currContainer) : tierlist.hold;
-        tierlist.moveTo(
-            from.container.find(field => field.name == fieldEle.id),
-            to,
-            from);
+        tierlist.moveTo(from.container.find(field => field.name == fieldEle.id), to, from);
         console.log(tierlist)
     }
 }

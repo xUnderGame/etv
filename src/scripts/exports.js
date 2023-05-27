@@ -6,7 +6,6 @@ export class Tierlist {
         this.tiers = [];
         if (tiers) tiers.forEach(tier => this.createTier(tier));
         this.hold = new Tier("Holding");
-
     }
 
     // Moves an element from a tier a different one.
