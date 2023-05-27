@@ -65,6 +65,10 @@ function openGUI(id) {
 
 
 // ----------- Drag && drop sheningans. -----------
+let holdingEle = document.getElementById("holding");
+holdingEle.addEventListener("drop", function () { dragDrop(event) }, false);
+holdingEle.addEventListener("dragover", function () { dragOver(event) }, false);
+
 // Event that triggers when something draggable drops over something.
 export function dragDrop(e) {
     e.preventDefault();
