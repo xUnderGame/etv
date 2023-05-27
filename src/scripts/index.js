@@ -63,20 +63,10 @@ function openGUI(id) {
     document.body.appendChild(blank);
 }
 
+
 // ----------- Drag && drop sheningans. -----------
-var holdEle = document.getElementById("holding");
-var tlEle = document.getElementById("tl");
-
-// Add event listeners for dragging and dropping.
-let interactables = Array.from((tlEle.children));
-interactables.push(holdEle)
-for (let ele of interactables) {
-    document.getElementById(ele.id).addEventListener("drop", function () { dragDrop(event) }, false);
-    document.getElementById(ele.id).addEventListener("dragover", function () { dragOver(event) }, false);
-}
-
 // Event that triggers when something draggable drops over something.
-function dragDrop(e) {
+export function dragDrop(e) {
     e.preventDefault();
     if (e.target.className != "container") return;
 
@@ -98,6 +88,6 @@ function dragDrop(e) {
 }
 
 // Remove the default event to allow dropping in elements.
-function dragOver(e) {
+export function dragOver(e) {
     e.preventDefault();
 }

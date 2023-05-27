@@ -1,3 +1,5 @@
+import { dragDrop, dragOver } from "/src/scripts/index.js" // Probably not the best way to do it!
+
 // Tierlist class.
 export class Tierlist {
     tiers;
@@ -47,6 +49,8 @@ export class Tierlist {
     createTier(tier) {
         // We create the elements in HTML.
         let newTier = document.createElement("article");
+        newTier.addEventListener("drop", function () { dragDrop(event) }, false);
+        newTier.addEventListener("dragover", function () { dragOver(event) }, false);
         newTier.style.backgroundColor = tier.color;
         newTier.classList.add("tier");
         newTier.id = tier.id;
