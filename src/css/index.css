@@ -117,13 +117,13 @@ button {
     padding: 10px 0px 20px 0px;
 }
 .tier h2 {
-    height: fit-content;
     width: 8%;
     text-align: center;
 }
 
 /* Effects */
 button:hover,
+.tier h2,
 .field:hover {
     cursor: pointer;
 }

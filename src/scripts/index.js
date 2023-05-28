@@ -1,6 +1,7 @@
 import { Tierlist, Tier } from "/src/scripts/exports.js"
 
 // ----------- Tierlist && initial stuff. -----------
+// Makes a new tierlist.
 var tierlist = new Tierlist([
     new Tier("S", "red"),
     new Tier("A", "orange"),
@@ -13,85 +14,65 @@ var tierlist = new Tierlist([
 tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
 tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
 tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-tierlist.createField("olidsadan en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-tierlist.createField("olidsadasdasdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
 
-tierlist.createField("olain ssden pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("oliasdaaaasn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("oliasdasasdan en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("oliadddsn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("oliasdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("oliasdasaddsdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-tierlist.createField("olindasdaaaaasd en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
-
-console.log(tierlist);
-
-// Add event listeners to buttons.
-let buttonIDs = ["tierControls", "fieldControls"]; //, "import", "export"
-for (const i in buttonIDs) {
-    document.getElementById(buttonIDs[i]).addEventListener("click", function () { openGUI(buttonIDs[i]); });
-}
+// Add event listener to tier controls.
+document.getElementById("createTier").addEventListener("click", function () { openGUI("createTier"); });
 
 // GUI Function.
-function openGUI(id) {
+export function openGUI(id) {
     // Dim background and main modal.
     let blank = document.createElement("article");
     let modal = document.createElement("section");
     let controls = document.createElement("div");
     let title = document.createElement("h3");
     blank.addEventListener("click", function (e) { if (!document.getElementById("modal").contains(e.target)) document.getElementById("blank").remove(); });
-    controls.id = "controls"
+    controls.id = "controls";
     blank.id = "blank";
     modal.id = "modal";
 
-    // Now the funky stuff!
-    switch (id) {
-        // Tier controls.
-        case "tierControls":
-            title.textContent = "Tier controls";
+    // Tier controls.
+    if (id == "createTier") {
+        title.textContent = "Create tier";
 
-            // Create tier buttons.
-            let buttons = document.createElement("div");
-
-            let tierAddTier = document.createElement("button");
-            let tierRemoveTier = document.createElement("button");
-            tierAddTier.addEventListener("click", addTierDOM);
-            tierRemoveTier.addEventListener("click", addTierDOM);
-            tierAddTier.textContent = "Create tier";
-            tierRemoveTier.textContent = "Remove tier";
-            
-            // Input fields.
-            let fields = document.createElement("div");
-            let tierNameField = document.createElement("input");
-            let tierColorField = document.createElement("input");
-            tierNameField.id = "tierNameField";
-            tierColorField.id = "tierColorField";
-            tierNameField.placeholder = "Tier name/id";
-            tierColorField.placeholder = "Tier color (color, hex or rgb)";
-
-            // Appends to other elements.
-            buttons.appendChild(tierAddTier);
-            buttons.appendChild(tierRemoveTier);
-            fields.appendChild(tierNameField);
-            fields.appendChild(tierColorField);
-            controls.appendChild(buttons);
-            controls.appendChild(fields);
-            break;
-    
-        // Field controls.
-        case "fieldControls":
-            title.textContent = "Field controls";
-            break;
+        // Create tier button.
+        let addTier = document.createElement("button");
+        addTier.addEventListener("click", addTierDOM);
+        addTier.textContent = "Create tier";
         
-        default:
-            break;
+        // Input fields.
+        let fields = document.createElement("div");
+        let tierNameField = document.createElement("input");
+        let tierColorField = document.createElement("input");
+        tierNameField.id = "tierNameField";
+        tierColorField.id = "tierColorField";
+        tierNameField.placeholder = "Tier name/id";
+        tierColorField.placeholder = "Tier color (color, hex or rgb)";
+
+        // Appends to other elements.
+        fields.appendChild(tierNameField);
+        fields.appendChild(tierColorField);
+        controls.appendChild(addTier);
+        controls.appendChild(fields);
+    } else {
+        title.textContent = "Tier settings";
+
+        // Delete tier button.
+        let deleteTier = document.createElement("button");
+        deleteTier.addEventListener("click", function () { removeTierDOM(id); blank.click(); }); // blank.click errors (but works???)
+        deleteTier.textContent = "Delete tier (Must be empty)";
+
+        // Move tier buttons.
+        let moveTierUp = document.createElement("button");
+        let moveTierDown = document.createElement("button");
+        moveTierUp.addEventListener("click", function () { moveTierDOM(id, "UP"); });
+        moveTierDown.addEventListener("click", function () { moveTierDOM(id, "DOWN"); });
+        moveTierUp.textContent = "Move tier UP (Must be empty)";
+        moveTierDown.textContent = "Move tier DOWN (Must be empty)";
+
+        // Appends to other elements.
+        controls.appendChild(deleteTier);
+        controls.appendChild(moveTierUp);
+        controls.appendChild(moveTierDown);
     }
 
     // Append everything into the DOM.
@@ -101,12 +82,42 @@ function openGUI(id) {
     document.body.appendChild(blank);
 }
 
-// Add field function.
+// Add tier function.
 function addTierDOM() {
     let tierName = document.getElementById("tierNameField").value;
-    if (tierlist.tiers.some(tier => tier.id == tierName) || tierName.match(/^[a-z0-9]+$/) == null) return;
-    console.log(tierlist.tiers)
+    if (tierlist.tiers.some(tier => tier.id == tierName) || tierName.match(/^[a-zA-Z0-9]+$/) == null) return;
     tierlist.createTier(new Tier(tierName, document.getElementById("tierColorField").value));
+}
+
+// Move tier function.
+function moveTierDOM(id, direction) {
+    // Just some checks just in case...
+    let ref = tierlist.tiers.findIndex(tier => tier.id == id);
+    if (ref == -1) return;
+    if (tierlist.tiers[ref].container.length > 0) return; // Checks if the container is empty.
+    if ((ref <= 0 && direction == "UP") || (ref >= tierlist.tiers.length - 1 && direction == "DOWN")) return; // Checks if you can move up/down.
+
+    // Moves the DOM element.
+    let ele = document.getElementById(id);
+    if (ele.previousElementSibling && direction == "UP") ele.parentNode.insertBefore(ele, ele.previousElementSibling);
+    else if (ele.nextElementSibling && direction == "DOWN") ele.parentNode.insertBefore(ele.nextElementSibling, ele);
+
+    // Moves inside the tierlist tiers list.
+    var f = tierlist.tiers.splice(ref, 1)[0];
+    (direction == "UP")? tierlist.tiers.splice(ref - 1, 0, f) : tierlist.tiers.splice(ref + 1, 0, f);
+    console.log(tierlist.tiers);
+}
+
+// Remove tier function.
+function removeTierDOM(id) {
+    if (id.match(/^[a-zA-Z0-9]+$/) == null) return;
+    
+    // Removes the tier.
+    let ref = tierlist.tiers.findIndex(tier => tier.id == id);
+    if (ref == -1) return;
+    if (tierlist.tiers[ref].container.length > 0) return; // Checks if the container is empty.
+    document.getElementById(id).remove();
+    tierlist.tiers.splice(ref, 1);
 }
 
 

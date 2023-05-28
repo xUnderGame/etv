@@ -1,4 +1,4 @@
-import { dragDrop, dragOver } from "/src/scripts/index.js" // Probably not the best way to do it!
+import { dragDrop, dragOver, openGUI } from "/src/scripts/index.js" // Probably not the best way to do it!
 
 // Tierlist class.
 export class Tierlist {
@@ -56,6 +56,7 @@ export class Tierlist {
         newTier.id = tier.id;
 
         let tag = document.createElement("h2");
+        tag.addEventListener("click", function (e) { openGUI(tier.id) })
         tag.innerText = tier.id;
 
         let container = document.createElement("section");
