@@ -66,37 +66,47 @@ button {
     background-color: var(--gui-bg);
 }
 #modal {
-    width: 40%;
-    height: 40%;
+    width: 30%;
+    height: 30%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-radius: 20px;
     background-color: var(--secondary);
     color: black;
 }
+#controls {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .tier {
     height: 125px;
     width: 80%;
-    border: 1px solid var(--border);
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-basis: content;
+    border: 1px solid var(--border);
 }
 .field {
     height: 125px;
     width: 125px;
-    margin: 0px 5px 0px 0px;
 }
 .container {
-    height: inherit;
+    min-height: 125px;
     width: 95%;
+    display: flex;
+    flex-wrap: wrap;
     background-color: var(--tier-bg);
     border: 1px solid var(--border);
 }
 
 /* CSS Selectors */
 #holding section {
-    height: 175px;
+    min-height: 175px;
 }
 #holding section img {
     width: 175px;
@@ -104,7 +114,7 @@ button {
 }
 #modal h3 {
     font-size: xx-large;
-    padding: 10px 0px 40px 0px;
+    padding: 10px 0px 20px 0px;
 }
 .tier h2 {
     height: fit-content;

@@ -13,6 +13,24 @@ var tierlist = new Tierlist([
 tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
 tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
 tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+tierlist.createField("olidsadan en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+tierlist.createField("olidsadasdasdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("olain ssden pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("oliasdaaaasn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("oliasdasasdan en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("oliadddsn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("oliasdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("oliasdasaddsdn en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+tierlist.createField("olindasdaaaaasd en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+
+
 console.log(tierlist);
 
 // Add event listeners to buttons.
@@ -26,9 +44,10 @@ function openGUI(id) {
     // Dim background and main modal.
     let blank = document.createElement("article");
     let modal = document.createElement("section");
-    let controls = document.createElement("div")
+    let controls = document.createElement("div");
     let title = document.createElement("h3");
-    blank.addEventListener("click", function (e) { if (!document.getElementById("modal").contains(e.target)) document.getElementById("blank").remove() });
+    blank.addEventListener("click", function (e) { if (!document.getElementById("modal").contains(e.target)) document.getElementById("blank").remove(); });
+    controls.id = "controls"
     blank.id = "blank";
     modal.id = "modal";
 
@@ -38,13 +57,32 @@ function openGUI(id) {
         case "tierControls":
             title.textContent = "Tier controls";
 
-            // Create tier button and fields.
-            let tierBtn1 = document.createElement("button");
-            tierBtn1.addEventListener("click", function () { tierlist.createTier(new Tier("test")) });
-            tierBtn1.textContent = "Create tier";
+            // Create tier buttons.
+            let buttons = document.createElement("div");
+
+            let tierAddTier = document.createElement("button");
+            let tierRemoveTier = document.createElement("button");
+            tierAddTier.addEventListener("click", addTierDOM);
+            tierRemoveTier.addEventListener("click", addTierDOM);
+            tierAddTier.textContent = "Create tier";
+            tierRemoveTier.textContent = "Remove tier";
             
-            let tierNameField =
-            controls.appendChild(tierBtn1);
+            // Input fields.
+            let fields = document.createElement("div");
+            let tierNameField = document.createElement("input");
+            let tierColorField = document.createElement("input");
+            tierNameField.id = "tierNameField";
+            tierColorField.id = "tierColorField";
+            tierNameField.placeholder = "Tier name/id";
+            tierColorField.placeholder = "Tier color (color, hex or rgb)";
+
+            // Appends to other elements.
+            buttons.appendChild(tierAddTier);
+            buttons.appendChild(tierRemoveTier);
+            fields.appendChild(tierNameField);
+            fields.appendChild(tierColorField);
+            controls.appendChild(buttons);
+            controls.appendChild(fields);
             break;
     
         // Field controls.
@@ -61,6 +99,14 @@ function openGUI(id) {
     modal.appendChild(controls);
     blank.appendChild(modal);
     document.body.appendChild(blank);
+}
+
+// Add field function.
+function addTierDOM() {
+    let tierName = document.getElementById("tierNameField").value;
+    if (tierlist.tiers.some(tier => tier.id == tierName) || tierName.match(/^[a-z0-9]+$/) == null) return;
+    console.log(tierlist.tiers)
+    tierlist.createTier(new Tier(tierName, document.getElementById("tierColorField").value));
 }
 
 
