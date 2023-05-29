@@ -25,11 +25,20 @@ body {
     height: 100%;
 }
 button {
+    height: 60px;
     background-color: var(--accent);
     color: var(--text);
     border: 1px solid var(--secondary);
     border-radius: 4px;
     padding: 10px;
+}
+input {
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    margin: 10px 10px 0px 10px;
 }
 
 /* Classes and ID's */

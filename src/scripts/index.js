@@ -15,9 +15,10 @@ tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.
 tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
 tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
 
-// Add event listener to tier controls.
+// Add event listeners.
 document.getElementById("createTier").addEventListener("click", function () { openGUI("createTier"); });
-
+document.getElementById("export").addEventListener("click", function () { if (window.isSecureContext) navigator.clipboard.writeText(JSON.stringify(tierlist)); else prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
+console.log(navigator.clipboard)
 // GUI Function.
 export function openGUI(id) {
     // Dim background and main modal.
