@@ -75,8 +75,8 @@ input {
     background-color: var(--gui-bg);
 }
 #modal {
-    width: 30%;
-    height: 30%;
+    width: 45%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,6 +124,10 @@ input {
 #modal h3 {
     font-size: xx-large;
     padding: 10px 0px 20px 0px;
+}
+#controls div {
+    display: flex;
+    flex-direction: column;
 }
 .tier h2 {
     width: 8%;

@@ -10,22 +10,22 @@ var tierlist = new Tierlist([
     new Tier("D", "blue")
 ]);
 
-// Adds some placeholder songs.
-tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
-tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
-tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
+// // Adds some placeholder songs.
+// tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
+// tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
+// tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
 
 // Add event listeners.
-document.getElementById("createTier").addEventListener("click", function () { openGUI("createTier"); });
+document.getElementById("createTier").addEventListener("click", function () { openGUI("create", "tier"); });
+document.getElementById("createField").addEventListener("click", function () { openGUI("create", "field"); });
 document.getElementById("export").addEventListener("click", function () { if (window.isSecureContext) navigator.clipboard.writeText(JSON.stringify(tierlist)); else prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
 document.getElementById("import").addEventListener("click", function () { tierlist = importTierlist(); });
-
 
 // Import a tierlist.
 function importTierlist() {
     // Get the information
-    let json = JSON.parse(document.getElementById("importField").value);
-    if (!json) return;
+    let json;
+    try { json = JSON.parse(document.getElementById("importField").value); } catch (e) { return; }
     document.getElementById("tl").innerHTML = "";
     document.querySelector("#holding section").innerHTML = "";
 
@@ -41,7 +41,7 @@ function importTierlist() {
 }
 
 // GUI function.
-export function openGUI(id) {
+export function openGUI(id, tierOrField = null) {
     // Dim background and main modal.
     let blank = document.createElement("article");
     let modal = document.createElement("section");
@@ -53,27 +53,50 @@ export function openGUI(id) {
     modal.id = "modal";
 
     // Tier controls.
-    if (id == "createTier") {
-        title.textContent = "Create tier";
-
+    if (id == "create") {
+        
         // Create tier button.
-        let addTier = document.createElement("button");
-        addTier.addEventListener("click", addTierDOM);
-        addTier.textContent = "Create tier";
+        let addThing = document.createElement("button");
         
         // Input fields.
         let fields = document.createElement("div");
-        let tierNameField = document.createElement("input");
-        let tierColorField = document.createElement("input");
-        tierNameField.id = "tierNameField";
-        tierColorField.id = "tierColorField";
-        tierNameField.placeholder = "Tier name/id";
-        tierColorField.placeholder = "Tier color (color, hex or rgb)";
+        let nameField = document.createElement("input");
+        let colorField = document.createElement("input");
+        let imgField = document.createElement("input");
+        let urlField = document.createElement("input");
+        nameField.id = "NameField";
+        colorField.id = "ColorField";
+        imgField.id = "ImgField";
+        urlField.id = "UrlField";
+        
+        // Settings for tier.
+        if (tierOrField == "tier") {
+            title.textContent = "Create tier";
+            nameField.placeholder = "Tier name/id";
+            colorField.placeholder = "Tier color (color, hex or rgb)";
+            addThing.addEventListener("click", addTierDOM);
+            addThing.textContent = "Create tier";
 
+            fields.appendChild(nameField);
+            fields.appendChild(colorField);
+        }
+
+        // Settings for field.
+        else if (tierOrField == "field") {
+            title.textContent = "Create field";
+            nameField.placeholder = "Field name/id";
+            imgField.placeholder = "Field img (https://)";
+            urlField.placeholder = "Field url (https://..., optional)";
+            addThing.addEventListener("click", addFieldDOM);
+            addThing.textContent = "Create field";
+
+            fields.appendChild(nameField);
+            fields.appendChild(imgField);
+            fields.appendChild(urlField);
+        }
+        
         // Appends to other elements.
-        fields.appendChild(tierNameField);
-        fields.appendChild(tierColorField);
-        controls.appendChild(addTier);
+        controls.appendChild(addThing);
         controls.appendChild(fields);
     } else {
         title.textContent = "Tier settings";
@@ -106,9 +129,16 @@ export function openGUI(id) {
 
 // Add tier function.
 function addTierDOM() {
-    let tierName = document.getElementById("tierNameField").value;
+    let tierName = document.getElementById("NameField").value;
     if (tierlist.tiers.some(tier => tier.id == tierName) || tierName.match(/^[a-zA-Z0-9]+$/) == null) return;
-    tierlist.createTier(new Tier(tierName, document.getElementById("tierColorField").value));
+    tierlist.createTier(new Tier(tierName, document.getElementById("ColorField").value));
+}
+
+// Add field function.
+function addFieldDOM() {
+    let fieldName = document.getElementById("NameField").value;
+    if (tierlist.tiers.some(tier => tier.container.some(field => field.name = fieldName)) || tierlist.hold.container.some(field => field.name = fieldName) || fieldName.match(/^[a-zA-Z0-9]+$/) == null) return;
+    tierlist.createField(fieldName, document.getElementById("ImgField").value, document.getElementById("UrlField").value);
 }
 
 // Move tier function.
