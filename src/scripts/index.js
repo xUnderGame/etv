@@ -1,7 +1,7 @@
-import { Tierlist, Tier } from "/src/scripts/exports.js"
+import { Tierlist, Tier } from "/src/scripts/exports.js";
 
 // ----------- Tierlist && initial stuff. -----------
-// Makes a new tierlist.
+// Creates the default tierlist.
 var tierlist = new Tierlist([
     new Tier("S", "red"),
     new Tier("A", "orange"),
@@ -18,8 +18,29 @@ tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16
 // Add event listeners.
 document.getElementById("createTier").addEventListener("click", function () { openGUI("createTier"); });
 document.getElementById("export").addEventListener("click", function () { if (window.isSecureContext) navigator.clipboard.writeText(JSON.stringify(tierlist)); else prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
-console.log(navigator.clipboard)
-// GUI Function.
+document.getElementById("import").addEventListener("click", function () { tierlist = importTierlist(); });
+
+
+// Import a tierlist.
+function importTierlist() {
+    // Get the information
+    let json = JSON.parse(document.getElementById("importField").value);
+    if (!json) return;
+    document.getElementById("tl").innerHTML = "";
+    document.querySelector("#holding section").innerHTML = "";
+
+    // Create all the tiers (excluding holding).
+    let tiers = [];
+    json["tiers"].forEach(tier => tiers.push(new Tier(tier.id, tier.color, tier.container.map(function (field) { return field }))))
+
+    // Make the tierlist object and DOM objects.
+    let temp = new Tierlist(tiers, new Tier(json["hold"].id, json["hold"].color, json["hold"].container.map(function (field) { return field })));
+    temp.tiers.forEach(tier => tier.container.forEach(field => temp.createField(field.name, field.image, field.url, tier.id)))
+    temp.hold.container.forEach(field => temp.createField(field.name, field.image, field.url, temp.hold.id)); // Holding.
+    return temp;
+}
+
+// GUI function.
 export function openGUI(id) {
     // Dim background and main modal.
     let blank = document.createElement("article");

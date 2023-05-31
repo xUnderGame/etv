@@ -1,13 +1,14 @@
-import { dragDrop, dragOver, openGUI } from "/src/scripts/index.js" // Probably not the best way to do it!
+import { dragDrop, dragOver, openGUI } from "/src/scripts/index.js"; // Probably not the best way to do it!
 
 // Tierlist class.
 export class Tierlist {
     tiers;
     hold;
-    constructor(tiers = null) {
+    constructor(tiers = null, holding = null) {
         this.tiers = [];
+        this.hold = new Tier("holding");
         if (tiers) tiers.forEach(tier => this.createTier(tier));
-        this.hold = new Tier("Holding");
+        if (holding) this.hold = holding;
     }
 
     // Moves an element from a tier a different one.
@@ -25,10 +26,10 @@ export class Tierlist {
     }
 
     // Creates a field and adds it to holding.
-    createField(fieldName, fieldImg, fieldUrl = null) {
-        // Create the object and move it to holding.
+    createField(fieldName, fieldImg, fieldUrl = null, move = null) {
+        // Create the object and move it to holding (or not).
         let field = new Field(fieldName, fieldImg, fieldUrl);
-        this.moveTo(field, this.hold);
+        if (!move) this.moveTo(field, this.hold);
     
         // Creates the element in html.
         let fieldHtml = document.createElement("img");
@@ -41,7 +42,9 @@ export class Tierlist {
         fieldHtml.draggable = true;
 
         // Adds the element to the holder container.
-        let holder = document.querySelector("#holding section");
+        let holder;
+        if (!move) holder = document.querySelector("#holding section");
+        else holder = document.querySelector(`#${move} section`);
         holder.appendChild(fieldHtml);
     }
 
@@ -75,10 +78,11 @@ export class Tier {
     id;
     container;
     color;
-    constructor(tierID, tierCol = "transparent") {
+    constructor(tierID, tierCol = "transparent", fields = null) {
         this.id = tierID;
         this.container = [];
         this.color = tierCol;
+        if (fields) this.container = fields;
     }
 
     // Adds a Field to the tier.
