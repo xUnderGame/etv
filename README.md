@@ -1,7 +1,7 @@
 # UG's easy tierlist visualizer (ETV)
 Online tierlist maker and visualizer. Share your tierlist with friends and have fun!
 
-You can visit the website [by clicking here](https://ugdev.xyz/ETV)! (It's not up yet, give me a break)
+You can visit the website [by clicking here](https://ugdev.xyz/etv)!
 
 <img style="border: 1px solid black;" src="src/example.png"/>
 
