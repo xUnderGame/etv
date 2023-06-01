@@ -18,7 +18,7 @@ var tierlist = new Tierlist([
 // Add event listeners.
 document.getElementById("createTier").addEventListener("click", function () { openGUI("create", "tier"); });
 document.getElementById("createField").addEventListener("click", function () { openGUI("create", "field"); });
-document.getElementById("export").addEventListener("click", function () { prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
+document.getElementById("export").addEventListener("click", function () { if (window.isSecureContext) navigator.clipboard.writeText(JSON.stringify(tierlist)); else prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
 document.getElementById("import").addEventListener("click", function () { tierlist = importTierlist(); });
 
 // Import a tierlist.
