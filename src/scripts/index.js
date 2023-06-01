@@ -137,7 +137,7 @@ function addTierDOM() {
 // Add field function.
 function addFieldDOM() {
     let fieldName = document.getElementById("NameField").value;
-    if (tierlist.tiers.some(tier => tier.container.some(field => field.name = fieldName)) || tierlist.hold.container.some(field => field.name = fieldName) || fieldName.match(/^[a-zA-Z0-9]+$/) == null) return;
+    if (tierlist.tiers.some(tier => tier.container.some(field => field.name == fieldName)) || tierlist.hold.container.some(field => field.name == fieldName) || fieldName.match(/^[a-zA-Z0-9]+$/) == null) return;
     tierlist.createField(fieldName, document.getElementById("ImgField").value, document.getElementById("UrlField").value);
 }
 
