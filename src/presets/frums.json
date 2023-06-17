@@ -1,0 +1,515 @@
+{
+	"tiers": [
+		{ "id": "S", "container": [], "color": "red" },
+		{ "id": "A", "container": [], "color": "orange" },
+		{ "id": "B", "container": [], "color": "yellow" },
+		{ "id": "C", "container": [], "color": "green" },
+		{ "id": "D", "container": [], "color": "blue" }
+	],
+	"hold": {
+		"id": "holding",
+		"container": [
+			{
+				"name": "Absolute Zero",
+				"image": "https://i1.sndcdn.com/artworks-000338311986-brgpcn-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/absolute-zero"
+			},
+			{
+				"name": "I Can't Even Remember My Own Name",
+				"image": "https://i1.sndcdn.com/artworks-000626842786-5ax1ad-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/i-cant-even-remember-my-own-name"
+			},
+			{
+				"name": "memoryfactory.lzh",
+				"image": "https://i1.sndcdn.com/artworks-000211649914-ip3wah-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/memoryfactorylzh"
+			},
+			{
+				"name": "Jam with Pancake",
+				"image": "https://i1.sndcdn.com/artworks-000548087535-zd2plu-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/jam-with-pancake"
+			},
+			{
+				"name": "dimensionalize nervous breakdown",
+				"image": "https://i1.sndcdn.com/artworks-000288487343-62q2wn-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/dimensionalize-nervous-breakdown"
+			},
+			{
+				"name": "wing",
+				"image": "https://i1.sndcdn.com/artworks-000273485069-0115v9-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/wing"
+			},
+			{
+				"name": "Vigor Lines Yoked",
+				"image": "https://i1.sndcdn.com/artworks-000372765432-0mi7ra-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/vigor-lines-yoked"
+			},
+			{
+				"name": "nothing",
+				"image": "https://i1.sndcdn.com/artworks-sKnVeDQVAE9DQ9y7-WJkPpA-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/nothing"
+			},
+			{
+				"name": "lost in new blankness",
+				"image": "https://i1.sndcdn.com/artworks-000268709804-6q3bpn-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/lost-in-new-blankness"
+			},
+			{
+				"name": "My Capacitance",
+				"image": "https://i1.sndcdn.com/artworks-000675008776-yhcoyp-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/my-capacitance"
+			},
+			{
+				"name": "Salmiakki",
+				"image": "https://i1.sndcdn.com/artworks-000244206311-cxqofy-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/salmiakki"
+			},
+			{
+				"name": "24eeev0",
+				"image": "https://i1.sndcdn.com/artworks-000518530776-0dpb13-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/24eeev0"
+			},
+			{
+				"name": "Great Fury of Heaven",
+				"image": "https://i1.sndcdn.com/artworks-000301471524-teilhr-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/great-fury-of-heaven"
+			},
+			{
+				"name": "Flashbacklog",
+				"image": "https://i1.sndcdn.com/artworks-000297994488-adxdlx-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/flashbacklog"
+			},
+			{
+				"name": "Mdrqnxtagon",
+				"image": "https://i1.sndcdn.com/artworks-000177252402-wvrcz7-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/mdrqnxtagon"
+			},
+			{
+				"name": "swallow SMOKE",
+				"image": "https://i1.sndcdn.com/artworks-pSW1n6hRJJ7AD90g-UgidAQ-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/swallow-smoke"
+			},
+			{
+				"name": "dropdead",
+				"image": "https://i1.sndcdn.com/artworks-000388093398-j2fjbe-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/dropdead"
+			},
+			{
+				"name": "END OF SYSTEM",
+				"image": "https://i1.sndcdn.com/artworks-000363040869-7mg6bg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/end-of-system"
+			},
+			{
+				"name": "nisemono",
+				"image": "https://i1.sndcdn.com/artworks-000318646854-pawf3m-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/nisemono"
+			},
+			{
+				"name": "from the haze of our ragged hypoxias",
+				"image": "https://i1.sndcdn.com/artworks-000336626061-k2o289-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/from-the-haze-of-our-ragged-hypoxias"
+			},
+			{
+				"name": "gone_in_the_morning",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/gone-in-the-morning"
+			},
+			{
+				"name": "Infinityyyy",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/infinityyyy"
+			},
+			{
+				"name": "The Divine Comedy",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/the-divine-comedy"
+			},
+			{
+				"name": "sleepwalk station",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/sleepwalk-station"
+			},
+			{
+				"name": "Restoration Lake",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/restoration-lake"
+			},
+			{
+				"name": "XNOR XNOR XNOR",
+				"image": "https://f4.bcbits.com/img/a1191721543_16.jpg",
+				"url": "https://frums.bandcamp.com/track/xnor-xnor-xnor"
+			},
+			{
+				"name": "of Ambrosia",
+				"image": "https://f4.bcbits.com/img/a1370368274_16.jpg",
+				"url": "https://frums.bandcamp.com/track/of-ambrosia"
+			},
+			{
+				"name": "Dispore Deplore Create Samekh",
+				"image": "https://i1.sndcdn.com/avatars-000569281377-5d93mq-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/dispore-deplore-create-samekh"
+			},
+			{
+				"name": "goTe / goTe EX",
+				"image": "https://i1.sndcdn.com/artworks-000105994139-gmfwu9-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/gote-ex"
+			},
+			{
+				"name": "Obelian Secrets",
+				"image": "https://i1.sndcdn.com/avatars-000569281377-5d93mq-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/obelian-secrets"
+			},
+			{
+				"name": "Seven Circles",
+				"image": "https://i1.sndcdn.com/avatars-000569281377-5d93mq-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/seven-circles"
+			},
+			{
+				"name": "aerostorm",
+				"image": "https://i1.sndcdn.com/artworks-000109710418-afghke-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/aerostorm"
+			},
+			{
+				"name": "higher symbols",
+				"image": "https://i1.sndcdn.com/artworks-000113766563-ct8dmm-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/higher-symbols"
+			},
+			{
+				"name": "Quantum Distress Signal",
+				"image": "https://i1.sndcdn.com/artworks-000122439535-skqxvg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/quantum-distress-signal"
+			},
+			{
+				"name": "Credits / Credits EX",
+				"image": "https://i1.sndcdn.com/artworks-000129516190-c4nsuz-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/credits-ex"
+			},
+			{
+				"name": "Wavetapper",
+				"image": "https://i1.sndcdn.com/artworks-000129516464-75f4p7-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/wavetapper"
+			},
+			{
+				"name": "Wake Up",
+				"image": "https://i1.sndcdn.com/artworks-000133093243-dr7q8l-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/wake-up"
+			},
+			{
+				"name": "the end of this world, and the girl who crossed the moon's oceans.",
+				"image": "https://i1.sndcdn.com/artworks-000154246742-rb978a-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/the-end-of-this-world-and-the-girl-who-crossed-the-moons-oceans"
+			},
+			{
+				"name": "Puru - Snow White (frums.delta)",
+				"image": "https://i1.sndcdn.com/artworks-000157416188-wig8n4-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/snow-white-remix"
+			},
+			{
+				"name": "Star of the COME ON!!",
+				"image": "https://i1.sndcdn.com/artworks-000165710522-9gn8si-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/star-of-the-come-on"
+			},
+			{
+				"name": "gymnopédie no. 1",
+				"image": "https://i1.sndcdn.com/artworks-000168157712-xgqv69-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/gymnopedie-no-1"
+			},
+			{
+				"name": "Zephyrs",
+				"image": "https://i1.sndcdn.com/artworks-000635106763-oil69c-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/zephyrs"
+			},
+			{
+				"name": "endleSSStation (Bootleg)",
+				"image": "https://i1.sndcdn.com/artworks-000198011887-p64orz-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/endlessstation-frums-bootleg"
+			},
+			{
+				"name": "Options / Options EX",
+				"image": "https://i1.sndcdn.com/artworks-000246420828-800xh2-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/options-ex"
+			},
+			{
+				"name": "theyaremanycolors",
+				"image": "https://i1.sndcdn.com/artworks-000246420831-uihq7g-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/theyaremanycolors"
+			},
+			{
+				"name": "We Want To Run",
+				"image": "https://i1.sndcdn.com/artworks-000635106961-yt48td-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/we-want-to-run"
+			},
+			{
+				"name": "Turnstile Jumper",
+				"image": "https://i1.sndcdn.com/artworks-000374198934-8uqm0o-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/turnstile-jumper"
+			},
+			{
+				"name": "Pictured as Perfect / Pictured as Perfect and Plus",
+				"image": "https://i1.sndcdn.com/artworks-000433761798-ztzq5l-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/pictured-as-perfect-and-plus"
+			},
+			{
+				"name": "caprice for if",
+				"image": "https://i1.sndcdn.com/artworks-000443046330-dlwqim-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/caprice-for-if"
+			},
+			{
+				"name": "unforgivable bloodplay",
+				"image": "https://i1.sndcdn.com/artworks-000494958087-k7ej5y-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/unforgivable-bloodplay"
+			},
+			{
+				"name": "VIS::CRACKED",
+				"image": "https://i1.sndcdn.com/artworks-000498879012-5kfi1e-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/viscracked"
+			},
+			{
+				"name": "Gender and a Metal Bat",
+				"image": "https://i1.sndcdn.com/artworks-000513054504-a8pwa8-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/gender-and-a-metal-bat"
+			},
+			{
+				"name": "daylight diary",
+				"image": "https://i1.sndcdn.com/artworks-000582005498-2ha3gg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/daylight-diary"
+			},
+			{
+				"name": "https://soundcloud.com/frums/daylight-diary",
+				"image": "https://i1.sndcdn.com/artworks-vYU6jiIec2y5dHZ4-dOwzzw-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/orthoplexed"
+			},
+			{
+				"name": "Pean Saul - THERMOMETER",
+				"image": "https://i1.sndcdn.com/artworks-000545294829-4ibyck-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/thermometer"
+			},
+			{
+				"name": "Q.E.",
+				"image": "https://i1.sndcdn.com/artworks-RwdVZmGKxhonPdFR-vfDnhA-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/q-dot-e-dot"
+			},
+			{
+				"name": "NEERWUISSALEARNTD",
+				"image": "https://i1.sndcdn.com/artworks-vMhzu1GiCQMxz5YN-2zsyVg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/neerwuissalearntd"
+			},
+			{
+				"name": "Nine Fingers",
+				"image": "https://i1.sndcdn.com/artworks-ufPEfzZoIDI6Oylz-fgNp8w-t500x500.png",
+				"url": "https://soundcloud.com/frums/nine-fingers"
+			},
+			{
+				"name": "Yesterday Is Never Coming Back",
+				"image": "https://i1.sndcdn.com/artworks-niu9ImqyMt8p5vl9-NYOAyQ-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/yesterday-is-never-coming-back"
+			},
+			{
+				"name": "COOL_EXCEPTION",
+				"image": "https://i1.sndcdn.com/artworks-2Oyckz9hnyc1kOJi-5dxPcw-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/cool_exception"
+			},
+			{
+				"name": "multi_arm",
+				"image": "https://i1.sndcdn.com/artworks-LX98HGHmzpFnL8HE-dzfAiA-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/multi_arm"
+			},
+			{
+				"name": "Tower of Dreams",
+				"image": "https://i1.sndcdn.com/artworks-1Dfszl1QXq8z3ulC-ACkHFQ-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/tower-of-dreams"
+			},
+			{
+				"name": "Nonstopwatch",
+				"image": "https://i1.sndcdn.com/artworks-yyyC1RlFmkbD51yH-BgrG5g-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/nonstopwatch"
+			},
+			{
+				"name": "Living Will",
+				"image": "https://i1.sndcdn.com/artworks-xa8l5jTgspmr7cEz-eqMwqA-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/living-will"
+			},
+			{
+				"name": "isla",
+				"image": "https://i1.sndcdn.com/artworks-ZDcbAeznf17j3BEd-q966Sw-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/isla"
+			},
+			{
+				"name": "parvorbital",
+				"image": "https://i1.sndcdn.com/artworks-hPvf42BY9ZQYFzNF-z9EuBg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/parvorbital"
+			},
+			{
+				"name": "mju",
+				"image": "https://i1.sndcdn.com/artworks-tqCYALYpbJgB7dyx-zLmkSw-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/mju"
+			},
+			{
+				"name": "sing sing red indigo",
+				"image": "https://i1.sndcdn.com/artworks-cU3ppzqEis5AONzz-WJVF2Q-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/sing-sing-red-indigo"
+			},
+			{
+				"name": "Remnants of Turing",
+				"image": "https://i1.sndcdn.com/artworks-7x2jVCbgIkzvfRtp-HuO2WQ-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/remnants-of-turing"
+			},
+			{
+				"name": "gur yvsr kari (the life)",
+				"image": "https://i1.sndcdn.com/artworks-viAzj52zhMhTPjhp-Seuy0w-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/gur-yvsr-kari"
+			},
+			{
+				"name": "drink-colored eight star",
+				"image": "https://i1.sndcdn.com/artworks-GSI0MzEzQ6fW4Uqz-6Ef9qQ-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/drink-colored-eight-star"
+			},
+			{
+				"name": "bios (/)",
+				"image": "https://i1.sndcdn.com/artworks-YIC8JssFqzcm9hUL-TgdAlg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/bios"
+			},
+			{
+				"name": "lark is recording the dot",
+				"image": "https://i1.sndcdn.com/artworks-Fy0OOiRykGi4Hxlf-ggBPpg-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/lark-is-recording-the-dot"
+			},
+			{
+				"name": "Waste Eater",
+				"image": "https://i1.sndcdn.com/artworks-AHFUIwBWplSq5DXw-r4F2ig-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/waste-eater"
+			},
+			{
+				"name": "highway hypnagogia",
+				"image": "https://f4.bcbits.com/img/a1287089205_10.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/highway-hypnagogia"
+			},
+			{
+				"name": "synonym",
+				"image": "https://f4.bcbits.com/img/a0697714866_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/synonym"
+			},
+			{
+				"name": "antonym",
+				"image": "https://f4.bcbits.com/img/a1637636184_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/antonym"
+			},
+			{
+				"name": "variadicgleam",
+				"image": "https://f4.bcbits.com/img/a1145517715_16.jpg",
+				"url": "https://zohryu.bandcamp.com/track/variadicgleam"
+			},
+			{
+				"name": "chmod 166 heart",
+				"image": "https://f4.bcbits.com/img/a0570301198_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/chmod-166-heart"
+			},
+			{
+				"name": "one of none",
+				"image": "https://f4.bcbits.com/img/a2499471796_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/one-of-none-2"
+			},
+			{
+				"name": "QE",
+				"image": "https://f4.bcbits.com/img/a0533040430_16.jpg",
+				"url": "https://bit192.bandcamp.com/track/frums-q-e"
+			},
+			{
+				"name": "Thinker Walker Dreamer Scatter",
+				"image": "https://f4.bcbits.com/img/a3182719506_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/thinker-walker-dreamer-scatter"
+			},
+			{
+				"name": "Polaris",
+				"image": "https://f4.bcbits.com/img/a0854898576_16.jpg",
+				"url": "https://arforest.bandcamp.com/track/polaris"
+			},
+			{
+				"name": "Doll and Difference",
+				"image": "https://f4.bcbits.com/img/a3500360721_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/doll-and-difference"
+			},
+			{
+				"name": "Deletion Lake",
+				"image": "https://f4.bcbits.com/img/a1779071442_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/deletion-lake"
+			},
+			{
+				"name": "Give Everything",
+				"image": "https://f4.bcbits.com/img/a4278936326_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/give-everything"
+			},
+			{
+				"name": "Don't Save",
+				"image": "https://f4.bcbits.com/img/a3139338251_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/dont-save"
+			},
+			{
+				"name": "olin en pakala",
+				"image": "https://f4.bcbits.com/img/a1562528122_16.jpg",
+				"url": "https://strlabel.bandcamp.com/track/olin-en-pakala"
+			},
+			{
+				"name": "Aegleseeker & Remixes & Afterworld",
+				"image": "https://f4.bcbits.com/img/a2404264320_16.jpg",
+				"url": "https://slrm.bandcamp.com/track/aegleseeker"
+			},
+			{
+				"name": "Bottom of the Self",
+				"image": "https://f4.bcbits.com/img/a0227408827_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/bottom-of-the-self"
+			},
+			{
+				"name": "In Their Arms",
+				"image": "https://f4.bcbits.com/img/a3414856723_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/in-their-arms"
+			},
+			{
+				"name": "exec grid",
+				"image": "https://f4.bcbits.com/img/a2020790783_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/exec-grid"
+			},
+			{
+				"name": "Undiscardable",
+				"image": "https://i1.sndcdn.com/artworks-000182495437-jfryiu-t500x500.jpg",
+				"url": "https://soundcloud.com/ut_underveil/frums-undiscardable"
+			},
+			{
+				"name": "UMBRA, RADIOLOGOS",
+				"image": "https://i1.sndcdn.com/artworks-000232396745-ph90s8-t500x500.jpg",
+				"url": "https://soundcloud.com/ut_underveil/frums-umbra-radiologos"
+			},
+			{
+				"name": "Origin of fish",
+				"image": "https://i1.sndcdn.com/artworks-000352938450-w75sa3-t500x500.jpg",
+				"url": "https://soundcloud.com/uv_underveil/frums"
+			},
+			{
+				"name": "Kneading",
+				"image": "https://f4.bcbits.com/img/a2207681542_16.jpg",
+				"url": "https://diversesystem.bandcamp.com/track/kneading"
+			},
+			{
+				"name": "Sapphire Chamber",
+				"image": "https://i1.sndcdn.com/artworks-000465825339-1lcvsc-t500x500.jpg",
+				"url": "https://soundcloud.com/frums/philomela-sapphire-chamber-frums-re-enclosure"
+			},
+			{
+				"name": "19ZZ",
+				"image": "https://i1.sndcdn.com/artworks-000555849864-myp8rs-t500x500.jpg",
+				"url": "https://soundcloud.com/0rz9xv9nkbrg/19zz-unknown-bms_shuin"
+			},
+			{
+				"name": "polylattice",
+				"image": "https://i1.sndcdn.com/artworks-000246420919-p3lwfh-t500x500.jpg",
+				"url": "https://soundcloud.com/nitrox72/bofu2017-polylattice"
+			},
+			{
+				"name": "bofxvii meme",
+				"image": "https://i1.sndcdn.com/artworks-gnXOacFLzwV7DQkf-u4MxGA-t500x500.jpg",
+				"url": "https://soundcloud.com/nonamesu/bofxvii-meme"
+			}
+		],
+		"color": "transparent"
+	}
+}

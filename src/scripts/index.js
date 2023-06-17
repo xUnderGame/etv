@@ -1,6 +1,9 @@
 import { Tierlist, Tier } from "/src/scripts/exports.js";
+import frumsPreset from "/src/presets/frums.json" assert { type: "json" };
 
 // ----------- Tierlist && initial stuff. -----------
+if (/Android|iPhone/i.test(navigator.userAgent)) openGUI("create", "mobile");
+
 // Creates the default tierlist.
 var tierlist = new Tierlist([
     new Tier("S", "red"),
@@ -10,22 +13,37 @@ var tierlist = new Tierlist([
     new Tier("D", "blue")
 ]);
 
-// // Adds some placeholder songs.
-// tierlist.createField("Absolute Zero", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/absolute-zero");
-// tierlist.createField("I Can't Even Remember My Own Name", "https://f4.bcbits.com/img/a1941319298_16.jpg", "https://frums.bandcamp.com/track/i-cant-even-remember-my-own-name");
-// tierlist.createField("olin en pakala", "https://f4.bcbits.com/img/a1562528122_16.jpg", "https://strlabel.bandcamp.com/track/olin-en-pakala");
-
 // Add event listeners.
 document.getElementById("createTier").addEventListener("click", function () { openGUI("create", "tier"); });
 document.getElementById("createField").addEventListener("click", function () { openGUI("create", "field"); });
 document.getElementById("export").addEventListener("click", function () { if (window.isSecureContext) navigator.clipboard.writeText(JSON.stringify(tierlist)); else prompt("Exported JSON: (Ctrl + C)", JSON.stringify(tierlist)) });
 document.getElementById("import").addEventListener("click", function () { tierlist = importTierlist(); });
+document.getElementById("presets").addEventListener("change", function () { let me = document.getElementById("presets"); tierlist = importTierlist(me.options[me.selectedIndex].text) });
 
 // Import a tierlist.
-function importTierlist() {
-    // Get the information
+function importTierlist(preset = null) {
     let json;
-    try { json = JSON.parse(document.getElementById("importField").value); } catch (e) { return; }
+    
+    // Get the information and check that the JSON is valid..
+    if (!preset) {
+        let importDOM = document.getElementById("importField");
+        try { json = JSON.parse(importDOM.value); } catch (e) { json = null; }
+        importDOM.value = "";
+        if (!json) {
+            importDOM.placeholder = "Invalid JSON.";
+            return tierlist;
+        };
+        importDOM.placeholder = "Tierlist imported correctly!";
+    }
+
+    // Presets (currently only frums tierlist).
+    else {
+        if (preset == "Frums") json = frumsPreset;
+        else return tierlist;
+    }
+
+    
+    // Reset all the DOM elements.
     document.getElementById("tl").innerHTML = "";
     document.querySelector("#holding section").innerHTML = "";
 
@@ -37,6 +55,7 @@ function importTierlist() {
     let temp = new Tierlist(tiers, new Tier(json["hold"].id, json["hold"].color, json["hold"].container.map(function (field) { return field })));
     temp.tiers.forEach(tier => tier.container.forEach(field => temp.createField(field.name, field.image, field.url, tier.id)))
     temp.hold.container.forEach(field => temp.createField(field.name, field.image, field.url, temp.hold.id)); // Holding.
+    console.log(temp)
     return temp;
 }
 
@@ -73,7 +92,7 @@ export function openGUI(id, tierOrField = null) {
         if (tierOrField == "tier") {
             title.textContent = "Create tier";
             nameField.placeholder = "Tier name/id";
-            colorField.placeholder = "Tier color (color, hex or rgb)";
+            colorField.type = "color";
             addThing.addEventListener("click", addTierDOM);
             addThing.textContent = "Create tier";
 
@@ -95,9 +114,26 @@ export function openGUI(id, tierOrField = null) {
             fields.appendChild(urlField);
         }
         
+        // OnMobile modal.
+        else if (tierOrField == "mobile") {
+            title.textContent = "Mobile Notice";
+
+            // Creates and edits both text fields.
+            let infoText = document.createElement("p");
+            let however = document.createElement("p");
+            infoText.textContent = "This website does not function well (if at all) on mobiles, please consider using a computer or laptop to use this website!";
+            however.textContent = "You can still, however, check the website by clicking off this modal!";
+            infoText.style.textAlign = "center";
+            however.style.textAlign = "center";
+
+            fields.appendChild(infoText);
+            fields.appendChild(however);
+        }
+
         // Appends to other elements.
-        controls.appendChild(addThing);
         controls.appendChild(fields);
+        if (tierOrField != "mobile") controls.appendChild(addThing);
+
     } else {
         title.textContent = "Tier settings";
 

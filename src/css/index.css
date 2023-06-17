@@ -11,8 +11,9 @@
 }
 ::placeholder {
     text-align: center; 
- }
+}
 * {
+    font-family: Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
 }
@@ -38,7 +39,10 @@ input {
     text-align: center;
     border: 2px solid var(--accent);
     border-radius: 10px;
-    margin: 10px 10px 0px 10px;
+    margin: 0px 10px 10px 10px;
+}
+select {
+    height: 20px;
 }
 
 /* Classes and ID's */
@@ -75,8 +79,8 @@ input {
     background-color: var(--gui-bg);
 }
 #modal {
-    width: 45%;
-    height: 45%;
+    width: 80%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,7 +134,11 @@ input {
     flex-direction: column;
 }
 .tier h2 {
+    height: 100%;
     width: 8%;
+    font-family: monospace;
+    font-size: xx-large;
+    filter: drop-shadow(3px 3px 5px black);;
     text-align: center;
 }
 
